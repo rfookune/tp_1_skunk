@@ -1,4 +1,9 @@
-
+/**
+ * A crooked die rolling a 1 every time
+ * 
+ * @author John Luukkonen, Rhyan Foo Kune
+ *
+ */
 public class CrookedDie1 extends Die
 {
 	public CrookedDie1()

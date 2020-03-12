@@ -1,3 +1,10 @@
+/**
+ * Test for Dice with combination of regular random Die, CrookedDie1 and CrookedDie2
+ * 
+ * @author John Luukkonen, Rhyan Foo Kune
+ *
+ */
+
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
@@ -7,7 +14,7 @@ import edu.princeton.cs.introcs.StdOut;
 class TestDice {
 
 	@Test
-	public void dice_with_random_die() {
+	public void dice_with_2_random_die() {
 		Dice dice = new Dice();
 		
 		for (int i = 1; i < 100000; i++) {

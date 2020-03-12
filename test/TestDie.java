@@ -1,7 +1,11 @@
-import static org.junit.jupiter.api.Assertions.*;
+/**
+ * Test for Die, CrookedDie1 and CrookedDie2
+ * 
+ * @author John Luukkonen, Rhyan Foo Kune
+ *
+ */
 
-import java.util.Arrays;
-import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
@@ -26,7 +30,7 @@ public class TestDie
 	}
 	
 	@Test
-	public void roll_random_die()
+	public void random_die_roll_between_1_and_6()
 	{
 		Die die = new Die();
 		
