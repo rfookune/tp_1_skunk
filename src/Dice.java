@@ -36,6 +36,7 @@ public class Dice
 	{
 		this.die1 = die1;
 		this.die2 = die2;
+		this.roll();
 	}
 
 	// Instance methods can also be declared anywhere in body of class
