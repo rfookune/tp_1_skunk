@@ -87,4 +87,43 @@ class TestDice {
         }
 	}
 
+	@Test
+	public void dice_get_both_dice()
+	{
+		Die die1 = new CrookedDie1();
+		Die die2 = new CrookedDie2();
+		Dice dice = new Dice(die1, die2);
+		assertEquals(dice.getBothDice().length, 2);
+		assertEquals(dice.getBothDice()[0],1);
+		assertEquals(dice.getBothDice()[1],2);
+	}
+	@Test
+	public void dice_tostring_crookedDie1_crookedDie2()
+	{
+		Die die1 = new CrookedDie1();
+		Die die2 = new CrookedDie2();
+		Dice dice = new Dice(die1, die2);
+								//"Dice with last roll: " + getLastRoll() + " => " + die1.getLastRoll() + " + " + die2.getLastRoll()
+		assertTrue(dice.toString().equals("Dice with last roll: 3 => 1 + 2"));
+	}
+
+	@Test
+	public void dice_tostring_crookedDie2_crookedDie2()
+	{
+		Die die1 = new CrookedDie2();
+		Die die2 = new CrookedDie2();
+		Dice dice = new Dice(die1, die2);
+								//"Dice with last roll: " + getLastRoll() + " => " + die1.getLastRoll() + " + " + die2.getLastRoll()
+		assertTrue(dice.toString().equals("Dice with last roll: 4 => 2 + 2"));
+	}
+	
+	@Test
+	public void dice_tostring_crookedDie1_crookedDie1()
+	{
+		Die die1 = new CrookedDie1();
+		Die die2 = new CrookedDie1();
+		Dice dice = new Dice(die1, die2);
+								//"Dice with last roll: " + getLastRoll() + " => " + die1.getLastRoll() + " + " + die2.getLastRoll()
+		assertTrue(dice.toString().equals("Dice with last roll: 2 => 1 + 1"));
+	}
 }

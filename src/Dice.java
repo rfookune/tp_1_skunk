@@ -63,7 +63,16 @@ public class Dice
 	//
 	// Roll of 7 => 4 + 3
 	//
-
+	public int[] getBothDice()
+	{
+		//this rolls 2D6 and returns an array with both values
+		int[] skunkRoll = new int[2];
+		skunkRoll[0] = die1.getLastRoll();
+		skunkRoll[1] = die2.getLastRoll();
+		
+		return	skunkRoll;
+	}
+	
 	public String toString()
 	{
 		return "Dice with last roll: " + getLastRoll() + " => " + die1.getLastRoll() + " + " + die2.getLastRoll();

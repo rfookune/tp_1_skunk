@@ -43,5 +43,21 @@ public class TestDie
 			
         }
 	}
+	
+	@Test
+	public void crookeddie1_to_string()
+	{
+		Die die = new CrookedDie1();
+		
+		assertTrue(die.toString().equals("A CrookedDie1 always rolling 1 (a skunk)"));
+	}
+	
+	@Test
+	public void crookeddie2_to_string()
+	{
+		Die die = new CrookedDie2();
+		
+		assertTrue(die.toString().equals("A CrookedDie2 always rolling 2"));
+	}
 
 }
