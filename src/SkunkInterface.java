@@ -1,53 +1,93 @@
 import java.util.Scanner;
 import edu.princeton.cs.introcs.*;
+
 public class SkunkInterface {
 
+	private Scanner scan = new Scanner(System.in);
 	
-	//Interfaces:
-	//I'm trying to only include the interface here, this is my first time making something like this, feel free to replace all of this.
-	public String RollOrPass(String playerName)
+	
+	// UI inputs
+	public String askRollOrPass(String playerName)
 	{
-		Scanner scan = new Scanner(System.in);
-		RollOrPassMsg(playerName);
+		rollOrPassMessage(playerName);
 		return scan.nextLine().toUpperCase();
 	}
-	public void ReportRoll(int[] diceValues)
+	
+	public String askPlayerName()
 	{
-		
+		playerNameMessage();
+		return scan.nextLine();
 	}
-	//MESSAGES:
-	public void WelcomeMsg()
+	
+	
+	// UI reports
+	public void turnRollReport(SkunkPlayer player, Turn turn) 
+	{
+		StdOut.println(player.getName() +", "+ turn.getLastRoll().toString() + " " + turn.toString());
+	}
+	
+	public void turnReport(SkunkPlayer player, Turn turn) 
+	{
+		StdOut.println("Here is a summary of your rolls for this turn " + player.getName() + ":");
+		turn.getTurnRolls().forEach((Roll roll) -> StdOut.println(roll.toString()));
+		StdOut.println("Your final turn score is " + turn.getScore());
+		StdOut.println("Your current game score is " + player.getPlayerScore());
+	}
+	
+	
+	// UI output messages
+	public void welcomeMessage()
 	{
 		StdOut.println("Welcome to Skunk!");
-		StdOut.println(	"would you like to play?");
 	}
 	
-	public void SingleSkunkMsg()
+	public void singleSkunkMessage()
 	{
 		StdOut.println("You rolled a single Skunk!");
-		TurnOverMsg();
+		turnOverMessage();
 	}
 	
-	public void SkunkDeuceMsg()
+	public void skunkDeuceMessage()
 	{
 		StdOut.println("You rolled a Skunk-Deuce!");
-		TurnOverMsg();
+		turnOverMessage();
 	}
 	
-	public void DoubleSkunkMsg()
+	public void doubleSkunkMessage()
 	{
 		StdOut.println("You Rolled a Double Skunk!");
-		TurnOverMsg();
+		turnOverMessage();
 	}
 	
-	public void TurnOverMsg()
+	public void turnOverMessage()
 	{
 		StdOut.println("Your turn is over!");
 	}
 	
-	public void RollOrPassMsg(String name)
+	
+	public void playerNameMessage()
 	{
-		StdOut.println(name + ", would you like to ROLL or PASS?");
-		StdOut.println("Type R to roll or P to pass and press ENTER");
+		StdOut.println("Enter your name and press ENTER.");
+	}
+	
+	public void rollOrPassMessage(String playerName)
+	{
+		StdOut.println(playerName + ", would you like to ROLL or PASS?");
+		StdOut.println("Type R to roll or P to pass and press ENTER.");
+	}
+	
+	public void endTurnMessage(String playerName)
+	{
+		StdOut.println(playerName + ", your turn has ended.");
+	}
+	
+	public void invalidPlayerDecisionMessage()
+	{
+		StdOut.println("Invalid input. Please try again.");
+	}
+	
+	public void skunkRolledMessage()
+	{
+		StdOut.println("Too bad! You rolled a skunk :(");
 	}
 }

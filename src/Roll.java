@@ -1,50 +1,72 @@
 
 public class Roll {
-String rollOutcome; //my thought is to return a code for special condisions single/double skunk, deuce, etc.
-Dice rollDice = new Dice();
-/*
-	 *	Knows value of each die rolled (Array<int>) 
-		Handle create dice 
-		Handle roll dice 
-		Handle determine dice output (score value, single skunk, skunk and deuce, double skunk) 
-				-Switch Statement
-				-
-		Return output of roll (score value, single skunk, skunk and deuce, double skunk) 
-		
-		
-		Single Skunk = turnPoints set to zero, 1 chip to kitty, end turn
-		Skunk Deuce = turnPoints set to zero, 2 chips to kitty, end turn
-		Double Skunk = turnPoints set to zero, playerScore set to zero, 4 chips to kitty, end turn
-	 */
-
-	public void playerRoll()
+	
+	private Dice dice;
+	private int score;
+	
+	
+	// constructors
+	Roll() 
 	{
-		rollDice.roll();
+		dice = new Dice();
+		dice.roll();
+		this.score = dice.getLastRoll();
+	}
+	
+	
+	// getters and setters
+	public Dice getDice()
+	{
+		return dice;
+	}
+	
+	public int getScore() 
+	{
+		return score;
+	}
+	
+	public int getPenality()
+	{
+		if (isDoubleSkunk()) {
+			return 4;
+		} else if (isDeuceSkunk()) {
+			return 2;
+		} else if (isSingleSkunk()) {
+			return 1;
+		}
 		
-		if (rollDice.getBothDice()[0] == 1 && rollDice.getBothDice()[1] == 1)
-			{
-				rollOutcome = "DoubleSkunk" ;
-			}
-		else if (rollDice.getBothDice()[0] == 1)
-			{
-				if (rollDice.getBothDice()[1] == 2)
-				{
-					rollOutcome = "Skunk/Deuce";
-				}
-				else
-					rollOutcome = "Skunk";
-				
-			}
-		else if (rollDice.getBothDice()[1]==1)
-			{
-				if (rollDice.getBothDice()[0] == 2)
-				{
-					rollOutcome = "Skunk/Deuce";			
-				}
-				else
-					rollOutcome = "Skunk";
-			}
-		else
-			rollOutcome = "GoodRoll";
+		return 0;	
+	}
+	
+	
+	// methods
+	public Boolean isDoubleSkunk() 
+	{
+		return dice.getDie1Roll() == 1 && dice.getDie2Roll() == 1;
+	}
+	
+	public Boolean isDeuceSkunk() 
+	{
+		return (dice.getDie1Roll() == 1 && dice.getDie2Roll() == 2) || (dice.getDie1Roll() == 2 && dice.getDie2Roll() == 1);
+	}
+	
+	public Boolean isSingleSkunk() 
+	{
+		return dice.getDie1Roll() == 1 || dice.getDie2Roll() == 1;
+	}
+	
+	public String toString() 
+	{
+		String outcome = Integer.toString(this.score);
+		
+		if (isDoubleSkunk()) {
+			outcome = "Double Skunk";
+		} else if (isDeuceSkunk()) {
+			outcome = "Deuce Skunk";
+		} else if (isSingleSkunk()) {
+			outcome = "Single Skunk";
+		}
+		
+		return "You rolled a " + outcome + " => " + dice.getDie1Roll() + " and " + dice.getDie2Roll() + ".";
 	}
 }

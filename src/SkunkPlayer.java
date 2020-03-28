@@ -1,23 +1,28 @@
 
 public class SkunkPlayer {
 
-	String name;
-	int playerScore;
-	int chipCount;
+	private String name;
+	private int playerScore;
+	private int chipCount;
 	
+	private Turn currentTurn;
+	
+	
+	// constructors
 	SkunkPlayer(String name)
 	{
 		this.name = name;
 	}
 	
-	//constructor to set all variables, maybe for testing?
 	SkunkPlayer(String name, int score, int chips)
 	{
 		this.name = name;
 		this.playerScore = score;
 		this.chipCount = chips;
 	}
-
+	
+	
+	// getters and setters
 	public String getName() {
 		return name;
 	}
@@ -42,5 +47,29 @@ public class SkunkPlayer {
 		this.chipCount = chipCount;
 	}
 	
+	public Turn getCurrentTurn() {
+		return currentTurn;
+	}
 	
+	
+	// methods
+	public void startTurn()
+	{
+		currentTurn = new Turn();
+	}
+	
+	public void handleSkunk()
+	{
+		if (currentTurn.getLastRoll().isDoubleSkunk()) {
+			playerScore = 0;
+		}
+		
+		currentTurn.setScore(0);
+	}
+	
+	public void endTurn()
+	{
+		setPlayerScore(playerScore + currentTurn.getScore());
+
+	}
 }

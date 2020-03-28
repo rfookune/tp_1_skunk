@@ -1,25 +1,71 @@
 import java.util.ArrayList;
+
 public class Turn {
-int turnScore;
-ArrayList<Integer> turnRolls = new ArrayList<Integer>(); //We're required to list all the rolls for the turn for this assignment, I don't think we need this for the finished program
-
-
+	
+	private int turnScore;
+	private boolean skunked;
+	private ArrayList<Roll> turnRolls;
+	
+	
+	// constructors
 	public Turn()
 	{
-	
-	}
-	public void turnRoll()
-	{
-		//rolls and returns the rolloutcome and the totals
-	}
-	public void AddTurnRoll(int rolled)
-	{
-		turnRolls.add(rolled);
+		this.turnRolls = new ArrayList<Roll>();
+		this.skunked = false;
 	}
 	
-	public String TurnRollsToString()
+	
+	// getters and setters
+	public void setScore(int score)
 	{
-		return turnRolls.toString();
+		this.turnScore = score;
+	}
+	
+	public int getScore()
+	{
+		return turnScore;
+	}
+	
+	public boolean isSkunked()
+	{
+		return skunked;
+	}
+	
+	public ArrayList<Roll> getTurnRolls()
+	{
+		return this.turnRolls;
+	}
+	
+	public Roll getLastRoll()
+	{
+		return turnRolls.get(turnRolls.size()-1);
+	}
+	
+	public void addRoll(Roll roll)
+	{
+		turnRolls.add(roll);
+	}
+	
+	public void addScore(Roll roll)
+	{
+		setScore(turnScore + roll.getScore());
+	}
+	
+	
+	// methods
+	public void roll()
+	{
+		Roll roll = new Roll();
+		
+		addRoll(roll);
+		addScore(roll);
+		
+		skunked = roll.isDoubleSkunk() || roll.isDeuceSkunk() || roll.isSingleSkunk();
+	}
+	
+	public String toString()
+	{
+		return "Your turn score is " + this.turnScore + ".";
 	}
 	
 }
