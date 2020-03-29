@@ -12,6 +12,9 @@ public class SkunkPlayer {
 	SkunkPlayer(String name)
 	{
 		this.name = name;
+		
+		// starting chip count 
+		this.chipCount = 50;
 	}
 	
 	SkunkPlayer(String name, int score, int chips)

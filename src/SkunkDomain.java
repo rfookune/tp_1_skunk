@@ -3,10 +3,12 @@ import edu.princeton.cs.introcs.StdOut;
 public class SkunkDomain {
 	
 	public SkunkInterface ui;
+	private int kitty;
 	
 	public SkunkDomain(SkunkInterface ui)
 	{
 		this.ui = ui;
+		this.kitty = 0;
 	}
 	
 	public void run()
@@ -49,8 +51,15 @@ public class SkunkDomain {
 					// if skunk is rolled
 					if (turn.isSkunked()) {
 						skunkRolled = true;
+						
 						currentPlayer.handleSkunk();
+						
+						int penality = turn.getPenality();
+						kitty = kitty + penality;
+						currentPlayer.setChipCount(currentPlayer.getChipCount() - penality);
+						
 						game.endTurn();
+						
 						ui.skunkRolledMessage();
 					}
 					
@@ -78,6 +87,12 @@ public class SkunkDomain {
 		
 		ui.turnReport(currentPlayer, turn);
 		StdOut.println("");
+		
+		StdOut.println("Kitty chip " + currentPlayer.getChipCount());
+		StdOut.println("Player chip " + kitty);
+		StdOut.println("");
+		
+		
 		
 		// Game ended
 		StdOut.println("Game ended!");

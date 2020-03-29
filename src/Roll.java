@@ -13,6 +13,14 @@ public class Roll {
 		this.score = dice.getLastRoll();
 	}
 	
+	Roll(Dice dice) 
+	{
+		this.dice = dice;
+		this.dice.roll();
+		
+		this.score = this.dice.getLastRoll();
+	}
+	
 	
 	// getters and setters
 	public Dice getDice()

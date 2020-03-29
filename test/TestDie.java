@@ -9,7 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import edu.princeton.cs.introcs.StdOut;
 
 public class TestDie
 {

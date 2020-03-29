@@ -13,10 +13,25 @@ public class Game {
 		this.currentPlayer = null;
 	}
 	
+	// constructors
+		public Game(SkunkPlayer player)
+		{
+			this.players = new ArrayList<SkunkPlayer>();
+			
+			this.players.add(player);
+			this.currentPlayer = player;
+		}
+		
+	
 	// getters and setters
 	public void setCurrentPlayer(SkunkPlayer player)
 	{
 		this.currentPlayer = player;
+	}
+	
+	public ArrayList<SkunkPlayer> getPlayers()
+	{
+		return this.players;
 	}
 	
 	public SkunkPlayer getCurrentPlayer()

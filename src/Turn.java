@@ -41,6 +41,11 @@ public class Turn {
 		return turnRolls.get(turnRolls.size()-1);
 	}
 	
+	public int getPenality()
+	{
+		return this.getLastRoll().getPenality();
+	}
+	
 	public void addRoll(Roll roll)
 	{
 		turnRolls.add(roll);
@@ -56,6 +61,17 @@ public class Turn {
 	public void roll()
 	{
 		Roll roll = new Roll();
+		
+		addRoll(roll);
+		addScore(roll);
+		
+		skunked = roll.isDoubleSkunk() || roll.isDeuceSkunk() || roll.isSingleSkunk();
+	}
+	
+	// roll with a predefined set of die
+	public void roll(Dice dice)
+	{
+		Roll roll = new Roll(dice);
 		
 		addRoll(roll);
 		addScore(roll);
