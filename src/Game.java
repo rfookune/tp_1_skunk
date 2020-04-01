@@ -2,21 +2,21 @@ import java.util.ArrayList;
 
 public class Game {
 
-	private ArrayList<SkunkPlayer> players;
-	private SkunkPlayer currentPlayer;
+	private ArrayList<Player> players;
+	private Player currentPlayer;
 	
 	
 	// constructors
 	public Game()
 	{
-		this.players = new ArrayList<SkunkPlayer>();
+		this.players = new ArrayList<Player>();
 		this.currentPlayer = null;
 	}
 	
 	// constructors
-		public Game(SkunkPlayer player)
+		public Game(Player player)
 		{
-			this.players = new ArrayList<SkunkPlayer>();
+			this.players = new ArrayList<Player>();
 			
 			this.players.add(player);
 			this.currentPlayer = player;
@@ -24,24 +24,24 @@ public class Game {
 		
 	
 	// getters and setters
-	public void setCurrentPlayer(SkunkPlayer player)
+	public void setCurrentPlayer(Player player)
 	{
 		this.currentPlayer = player;
 	}
 	
-	public ArrayList<SkunkPlayer> getPlayers()
+	public ArrayList<Player> getPlayers()
 	{
 		return this.players;
 	}
 	
-	public SkunkPlayer getCurrentPlayer()
+	public Player getCurrentPlayer()
 	{
 		return currentPlayer;
 	}
 	
 	public void addNewPlayer(String playerName)
 	{
-		SkunkPlayer player = new SkunkPlayer(playerName);
+		Player player = new Player(playerName);
 		players.add(player);
 		
 		// if first player added - set as current player
