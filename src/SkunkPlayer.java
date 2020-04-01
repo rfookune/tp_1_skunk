@@ -1,5 +1,5 @@
 
-public class Player {
+public class SkunkPlayer {
 
 	private String name;
 	private int playerScore;
@@ -9,7 +9,7 @@ public class Player {
 	
 	
 	// constructors
-	Player(String name)
+	SkunkPlayer(String name)
 	{
 		this.name = name;
 		
@@ -17,7 +17,7 @@ public class Player {
 		this.chipCount = 50;
 	}
 	
-	Player(String name, int score, int chips)
+	SkunkPlayer(String name, int score, int chips)
 	{
 		this.name = name;
 		this.playerScore = score;

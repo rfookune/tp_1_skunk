@@ -23,7 +23,7 @@ class TestGame {
 	@Test
 	void add_first_player_to_game() {
 		
-		Player player = new Player("John Doe");
+		SkunkPlayer player = new SkunkPlayer("John Doe");
 		
 		Game game = new Game(player);
 		

@@ -9,7 +9,7 @@ class TestPlayer {
 	void player_constructor() {
 		
 		String name = "John Doe";
-		Player player = new Player(name);
+		SkunkPlayer player = new SkunkPlayer(name);
 		
 		assertEquals(player.getName(), name);
 		assertEquals(player.getChipCount(), 50);
@@ -26,7 +26,7 @@ class TestPlayer {
 		Dice dice = new Dice(die1, die2);
 		
 		String name = "John Doe";
-		Player player = new Player(name);
+		SkunkPlayer player = new SkunkPlayer(name);
 		
 		player.startTurn();
 		player.getCurrentTurn().roll(dice);
@@ -44,7 +44,7 @@ class TestPlayer {
 		Dice dice = new Dice(die1, die2);
 		
 		String name = "John Doe";
-		Player player = new Player(name);
+		SkunkPlayer player = new SkunkPlayer(name);
 		
 		player.startTurn();
 		player.getCurrentTurn().roll(dice);
@@ -62,7 +62,7 @@ class TestPlayer {
 		Dice dice = new Dice(die1, die2);
 		
 		String name = "John Doe";
-		Player player = new Player(name);
+		SkunkPlayer player = new SkunkPlayer(name);
 		
 		player.startTurn();
 		player.getCurrentTurn().roll(dice);
@@ -78,7 +78,7 @@ class TestPlayer {
 	{
 
 		String name = "John Doe";
-		Player player = new Player(name);
+		SkunkPlayer player = new SkunkPlayer(name);
 		
 		int score = 0;
 		

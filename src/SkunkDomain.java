@@ -2,10 +2,10 @@ import edu.princeton.cs.introcs.StdOut;
 
 public class SkunkDomain {
 	
-	public Interface ui;
+	public SkunkInterface ui;
 	private int kitty;
 	
-	public SkunkDomain(Interface ui)
+	public SkunkDomain(SkunkInterface ui)
 	{
 		this.ui = ui;
 		this.kitty = 0;
@@ -25,7 +25,7 @@ public class SkunkDomain {
 		StdOut.println("");
 		
 		// Start current player's turn
-		Player currentPlayer = game.getCurrentPlayer();
+		SkunkPlayer currentPlayer = game.getCurrentPlayer();
 		currentPlayer.startTurn();
 		
 		Turn turn = currentPlayer.getCurrentTurn();
@@ -88,8 +88,8 @@ public class SkunkDomain {
 		ui.turnReport(currentPlayer, turn);
 		StdOut.println("");
 		
-		StdOut.println(currentPlayer.getName() + ", your chip count is " + currentPlayer.getChipCount() + ".");
-		StdOut.println("They kitty chip is " + kitty + ".");
+		StdOut.println("Kitty chip " + currentPlayer.getChipCount());
+		StdOut.println("Player chip " + kitty);
 		StdOut.println("");
 		
 		
