@@ -2,10 +2,10 @@ import edu.princeton.cs.introcs.StdOut;
 
 public class SkunkDomain {
 	
-	public SkunkInterface ui;
+	public Interface ui;
 	private int kitty;
 	
-	public SkunkDomain(SkunkInterface ui)
+	public SkunkDomain(Interface ui)
 	{
 		this.ui = ui;
 		this.kitty = 0;
@@ -25,7 +25,7 @@ public class SkunkDomain {
 		StdOut.println("");
 		
 		// Start current player's turn
-		SkunkPlayer currentPlayer = game.getCurrentPlayer();
+		Player currentPlayer = game.getCurrentPlayer();
 		currentPlayer.startTurn();
 		
 		Turn turn = currentPlayer.getCurrentTurn();

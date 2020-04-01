@@ -1,14 +1,14 @@
 
 public class SkunkApp {
 
-	public SkunkInterface ui;
+	public Interface ui;
 	public SkunkDomain skunkDomain;;
 	
 	
 	public SkunkApp()
 	{
 		// Create UI layer
-		ui = new SkunkInterface();
+		ui = new Interface();
 		
 		// Create domain layer
 		skunkDomain = new SkunkDomain(ui);

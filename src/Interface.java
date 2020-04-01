@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import edu.princeton.cs.introcs.*;
 
-public class SkunkInterface {
+public class Interface {
 
 	private Scanner scan = new Scanner(System.in);
 	
@@ -21,12 +21,12 @@ public class SkunkInterface {
 	
 	
 	// UI reports
-	public void turnRollReport(SkunkPlayer player, Turn turn) 
+	public void turnRollReport(Player player, Turn turn) 
 	{
 		StdOut.println(player.getName() +", "+ turn.getLastRoll().toString() + " " + turn.toString());
 	}
 	
-	public void turnReport(SkunkPlayer player, Turn turn) 
+	public void turnReport(Player player, Turn turn) 
 	{
 		StdOut.println("Here is a summary of your rolls for this turn " + player.getName() + ":");
 		turn.getTurnRolls().forEach((Roll roll) -> StdOut.println(roll.toString()));
