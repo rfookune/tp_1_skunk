@@ -19,6 +19,12 @@ public class Interface {
 		return scan.nextLine();
 	}
 	
+	public String askShowTurnSummary()
+	{
+		StdOut.println("Do you wish to see a summary of this turn? (Y/N)");
+		return scan.nextLine();
+	}
+	
 	
 	// UI reports
 	public void turnRollReport(Player player, Turn turn) 
@@ -81,7 +87,7 @@ public class Interface {
 		StdOut.println(playerName + ", your turn has ended.");
 	}
 	
-	public void invalidPlayerDecisionMessage()
+	public void invalidInputMessage()
 	{
 		StdOut.println("Invalid input. Please try again.");
 	}

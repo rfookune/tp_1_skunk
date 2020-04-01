@@ -79,19 +79,45 @@ public class SkunkDomain {
 				default: 
 					
 					// Handle invalid user input
-					ui.invalidPlayerDecisionMessage();
+					ui.invalidInputMessage();
 					StdOut.println("");
 			}
 			
 		} while (!playerDecision.equals("P") && !skunkRolled);
 		
-		ui.turnReport(currentPlayer, turn);
-		StdOut.println("");
+		
+		boolean validSummaryInput = false;
+		do {
+			
+			String showSummary = ui.askShowTurnSummary();
+			StdOut.println("");
+		
+			switch (showSummary)
+			{
+				
+				case "Y":
+					ui.turnReport(currentPlayer, turn);
+					StdOut.println("");
+					validSummaryInput = true;
+					break;
+					
+				case "N":
+					validSummaryInput = true;
+					break;
+				
+				default: 
+					
+					// Handle invalid user input
+					ui.invalidInputMessage();
+					StdOut.println("");
+			}
+			
+		} while (!validSummaryInput);
+		
 		
 		StdOut.println("Kitty chip " + currentPlayer.getChipCount());
 		StdOut.println("Player chip " + kitty);
 		StdOut.println("");
-		
 		
 		
 		// Game ended
