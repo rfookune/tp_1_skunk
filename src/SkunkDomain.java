@@ -115,8 +115,8 @@ public class SkunkDomain {
 		} while (!validSummaryInput);
 		
 		
-		StdOut.println("Kitty chip " + currentPlayer.getChipCount());
-		StdOut.println("Player chip " + kitty);
+		StdOut.println("Player chip " + currentPlayer.getChipCount());
+		StdOut.println("Kitty chip " + kitty);
 		StdOut.println("");
 		
 		
