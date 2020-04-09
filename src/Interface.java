@@ -7,19 +7,25 @@ public class Interface {
 	
 	
 	// UI inputs
-	public String askRollOrPass(String playerName)
+	public Integer promptPlayerCount()
+	{
+		StdOut.println("How many players will join the game?");
+		return Integer.parseInt(scan.nextLine());
+	}
+	
+	public String promptPlayerName(int index)
+	{
+		playerNameMessage(index);
+		return scan.nextLine();
+	}
+	
+	public String promptRollOrPass(String playerName)
 	{
 		rollOrPassMessage(playerName);
 		return scan.nextLine().toUpperCase();
 	}
 	
-	public String askPlayerName()
-	{
-		playerNameMessage();
-		return scan.nextLine();
-	}
-	
-	public String askShowTurnSummary()
+	public String promptShowTurnSummary()
 	{
 		StdOut.println("Do you wish to see a summary of this turn? (Y/N)");
 		return scan.nextLine();
@@ -44,7 +50,17 @@ public class Interface {
 	// UI output messages
 	public void welcomeMessage()
 	{
-		StdOut.println("Welcome to Skunk!");
+		StdOut.println("Welcome to Skunk! \n");
+	}
+	
+	public void turnStartedMessage(Player player)
+	{
+		StdOut.println("It's your turn now " + player.getName() + ". \n");
+	}
+	
+	public void lastTurnStartedMessage(Player player)
+	{
+		StdOut.println("It's your last turn " + player.getName() + ". \n");
 	}
 	
 	public void singleSkunkMessage()
@@ -65,15 +81,29 @@ public class Interface {
 		turnOverMessage();
 	}
 	
+	public void targetScoreReachedMessage(Player player)
+	{
+		StdOut.println("Congrats " + player.getName() + "! You reached the target score. Your game score is " + player.getPlayerScore() + ". \n");
+	}
+	
 	public void turnOverMessage()
 	{
 		StdOut.println("Your turn is over!");
 	}
 	
-	
-	public void playerNameMessage()
+	public void newWinnerMessage(Player newPlayer, Player oldPlayer)
 	{
-		StdOut.println("Enter your name and press ENTER.");
+		StdOut.println("Congrats "+ newPlayer.getName() + "! You surpassed " + oldPlayer.getName() + "'s score of " + oldPlayer.getPlayerScore() + "pts. You are the current winner with " + newPlayer.getPlayerScore() + "pts. \n");
+	}
+	
+	public void displayWinnerMessage(Player winner)
+	{
+		StdOut.println("Congrats "+ winner.getName() + "! You won this game. Your chip count is now " + winner.getChipCount() + ". \n");
+	}
+	
+	public void playerNameMessage(int index)
+	{
+		StdOut.println("Enter name for player " + index + " and press ENTER.");
 	}
 	
 	public void rollOrPassMessage(String playerName)

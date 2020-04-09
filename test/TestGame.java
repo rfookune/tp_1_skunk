@@ -18,17 +18,6 @@ class TestGame {
         }
 		
 	}
-	
-	
-	@Test
-	void add_first_player_to_game() {
-		
-		Player player = new Player("John Doe");
-		
-		Game game = new Game(player);
-		
-		assertEquals(game.getCurrentPlayer(), player);
-		
-	}
+
 
 }
