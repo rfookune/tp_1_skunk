@@ -8,7 +8,7 @@ public class SkunkDomain {
 	private ArrayList<Player> players;
 	private int kitty;
 	
-	private int TARGET_SCORE = 10;
+	private int TARGET_SCORE = 100;
 	
 	public SkunkDomain(Interface ui)
 	{
