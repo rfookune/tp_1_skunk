@@ -16,6 +16,8 @@ class TestRoll {
 		assertEquals(roll.getPenality(), 1);
 		assertTrue(roll.isSingleSkunk());
 		
+		assertTrue(roll.toString().equals("You rolled a Single Skunk => 1 and 3."));
+		
 	}
 	
 	@Test
@@ -29,6 +31,8 @@ class TestRoll {
 		
 		assertEquals(roll.getPenality(), 2);
 		assertTrue(roll.isDeuceSkunk());
+		
+		assertTrue(roll.toString().equals("You rolled a Deuce Skunk => 1 and 2."));
 		
 	}
 	
@@ -44,6 +48,21 @@ class TestRoll {
 		assertEquals(roll.getPenality(), 4);
 		assertTrue(roll.isDoubleSkunk());
 		
+		assertTrue(roll.toString().equals("You rolled a Double Skunk => 1 and 1."));
+		
+	}
+	
+	@Test
+	void outcome_no_skunked_rolled() {
+		
+		Die die1 = new CrookedDie3();
+		Die die2 = new CrookedDie3();
+		Dice dice = new Dice(die1, die2);
+		
+		Roll roll = new Roll(dice);
+		
+		assertEquals(roll.getPenality(), 0);
+		
 	}
 	
 	@Test
@@ -53,7 +72,4 @@ class TestRoll {
 		assertEquals(roll.getScore(), roll.getDice().getLastRoll());
 		
 	}
-	
-	
-
 }

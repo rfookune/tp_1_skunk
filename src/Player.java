@@ -26,19 +26,23 @@ public class Player {
 	
 	
 	// getters and setters
-	public String getName() {
+	public String getName() 
+	{
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(String name) 
+	{
 		this.name = name;
 	}
 
-	public int getPlayerScore() {
+	public int getPlayerScore() 
+	{
 		return playerScore;
 	}
 
-	public void setPlayerScore(int playerScore) {
+	public void setPlayerScore(int playerScore) 
+	{
 		this.playerScore = playerScore;
 	}
 
@@ -46,11 +50,13 @@ public class Player {
 		return chipCount;
 	}
 
-	public void setChipCount(int chipCount) {
+	public void setChipCount(int chipCount) 
+	{
 		this.chipCount = chipCount;
 	}
 	
-	public Turn getCurrentTurn() {
+	public Turn getCurrentTurn() 
+	{
 		return currentTurn;
 	}
 	

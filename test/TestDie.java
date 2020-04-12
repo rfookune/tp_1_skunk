@@ -58,5 +58,21 @@ public class TestDie
 		
 		assertTrue(die.toString().equals("A CrookedDie2 always rolling 2"));
 	}
+	
+	@Test
+	public void crookeddie3_to_string()
+	{
+		Die die = new CrookedDie3();
+		
+		assertTrue(die.toString().equals("A CrookedDie3 always rolling 3"));
+	}
+	
+	@Test
+	public void random_die_to_string()
+	{
+		Die die = new Die();
+		
+		assertTrue(die.toString().equals("Die: " + die.getLastRoll()));
+	}
 
 }

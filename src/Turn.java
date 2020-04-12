@@ -76,7 +76,7 @@ public class Turn {
 		addRoll(roll);
 		addScore(roll);
 		
-		skunked = roll.isDoubleSkunk() || roll.isDeuceSkunk() || roll.isSingleSkunk();
+		this.skunked = roll.isDoubleSkunk() || roll.isDeuceSkunk() || roll.isSingleSkunk();
 	}
 	
 	public String toString()

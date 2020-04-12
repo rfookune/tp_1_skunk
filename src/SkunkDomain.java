@@ -103,8 +103,10 @@ public class SkunkDomain {
 			} while (!playerDecision.equals("p") && !skunkRolled);
 			
 			
-			// if player reached target score
+			// player reached target score
 			if (currentPlayer.getPlayerScore() >= TARGET_SCORE) {
+				
+				// game ends
 				gameEnded = true;
 				game.setWinner(currentPlayer);
 				
@@ -148,6 +150,7 @@ public class SkunkDomain {
 			
 		}
 		
+		// if game ended - allow one more roll for each non winner
 		// last turn for each player that is not the first winner
 		while (game.getCurrentPlayer() != game.getFirstWinner()) {
 			

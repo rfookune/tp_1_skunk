@@ -9,11 +9,16 @@ class TestPlayer {
 	void player_constructor() {
 		
 		String name = "John Doe";
-		Player player = new Player(name);
 		
+		Player player = new Player(name);
 		assertEquals(player.getName(), name);
-		assertEquals(player.getChipCount(), 50);
 		assertEquals(player.getPlayerScore(), 0);
+		assertEquals(player.getChipCount(), 50);
+		
+		Player player2 = new Player(name, 0, 50);
+		assertEquals(player2.getName(), name);
+		assertEquals(player2.getPlayerScore(), 0);
+		assertEquals(player2.getChipCount(), 50);
 		
 	}
 	
@@ -97,6 +102,35 @@ class TestPlayer {
 		
 		assertEquals(player.getPlayerScore(), score);
 
+	}
+	
+	@Test
+	void update_player_name() {
+		
+		String name = "John Doe";
+		Player player = new Player(name);
+		
+		String nameUpdate = "Mary Johnson";
+		
+		player.setName(nameUpdate);
+		
+		assertEquals(player.getName(), nameUpdate);
+		
+	}
+	
+	
+	@Test
+	void update_player_chip_count() {
+		
+		String name = "John Doe";
+		Player player = new Player(name, 0, 50);
+		
+		assertTrue(player.getChipCount() == 50);
+		
+		player.setChipCount(40);
+		
+		assertTrue(player.getChipCount() == 40);
+		
 	}
 
 }

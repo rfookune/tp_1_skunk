@@ -115,4 +115,17 @@ class TestDice {
 								//"Dice with last roll: " + getLastRoll() + " => " + die1.getLastRoll() + " + " + die2.getLastRoll()
 		assertTrue(dice.toString().equals("Dice with last roll: 2 => 1 + 1"));
 	}
+	
+	
+	@Test
+	public void get_individual_die_from_dice()
+	{
+		Die die1 = new CrookedDie1();
+		Die die2 = new CrookedDie2();
+		
+		Dice dice = new Dice(die1, die2);
+		
+		assertEquals(dice.getDie1(), die1);
+		assertEquals(dice.getDie2(), die2);
+	}
 }

@@ -27,19 +27,23 @@ public class Dice
 		return this.lastRoll;
 	}
 	
-	public Die getDie1() {
+	public Die getDie1() 
+	{
 		return die1;
 	}
 	
-	public Die getDie2() {
+	public Die getDie2() 
+	{
 		return die2;
 	}
 
-	public int getDie1Roll() {
+	public int getDie1Roll() 
+	{
 		return die1.getLastRoll();
 	}
 	
-	public int getDie2Roll() {
+	public int getDie2Roll() 
+	{
 		return die2.getLastRoll();
 	}
 
