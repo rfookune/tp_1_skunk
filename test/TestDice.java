@@ -128,4 +128,15 @@ class TestDice {
 		assertEquals(dice.getDie1(), die1);
 		assertEquals(dice.getDie2(), die2);
 	}
-}
+	@Test
+	public void get_die_1_and_2_roll()
+	{
+		Die die1 = new CrookedDie1();
+		Die die2 = new CrookedDie2();
+		
+		Dice dice = new Dice(die1, die2);
+		
+		assertEquals(die1.getLastRoll(),dice.getDie1Roll());
+		assertEquals(die2.getLastRoll(),dice.getDie2Roll());
+	}
+} 
